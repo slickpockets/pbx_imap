@@ -14,21 +14,14 @@ from dotenv import dotenv_values
 default_config = dotenv_values('.env')
 testing_config = dotenv_values('.testing.env')
 
-if os.path.exists('.testing.env'):
-    print('Importing environment from .env file')
-    for line in open('.env'):
-        var = line.strip().split('=')
-        if len(var) == 2:
-            os.environ[var[0]] = var[1].replace("\"", "")
-
 
 class Config:
     APP_NAME = default_config['APP_NAME']
     SECRET_KEY = default_config['SECRET_KEY']
     #### IMAP CONFIG
-    USERNAME = default_config['USERNAME']
-    PASSWORD = default_config['PASSWORD']
-    SERVER = default_config['SERVER']
+    IMAP_USERNAME = default_config['IMAP_USERNAME']
+    IMAP_PASSWORD = default_config['IMAP_PASSWORD']
+    IMAP_SERVER = default_config['IMAP_SERVER']
 
     @staticmethod
     def init_app(app):

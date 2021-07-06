@@ -26,10 +26,9 @@ def key_type_check(*args):
     return(empty)
 
 
-@main.route("/")
 
 @main.route('/')
-def index():
+async def index():
     return(jsonify(endpoints))
 
 
